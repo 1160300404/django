@@ -1,0 +1,15 @@
+<a>Have {{ count }} questions:</a>
+{% if question_list %}
+<ol>
+    {% for question in question_list %}
+    <li><a>{{ question.question_text }}</a></li>
+    <ul>
+    {% for choice in question.choice_set.all %}
+    <li><input type="checkbox">{{ choice.choice_text }}</input></li>
+    {% endfor %}
+    </ul>
+    {% endfor %}
+</ol>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
